@@ -26,9 +26,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env*.local
 .env
-.env*
-!.env.example
+.env.production
 
 # vercel
 .vercel
@@ -36,6 +36,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Prisma
+/prisma/generated
+/lib/generated
+
+# Database files
+*.sqlite
+*.db
+
+# Logs
+logs
+*.log
 
 .idea/*
 !.idea/prettier.xml

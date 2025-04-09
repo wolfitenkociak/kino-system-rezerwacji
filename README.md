@@ -1,30 +1,116 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cinema Reservation System
+
+A modern cinema ticket reservation system built with Next.js, Prisma, and MySQL.
+
+## Features
+
+- User-friendly movie browsing and ticket reservation
+- Admin panel for managing movies and screenings
+- Secure authentication system
+- Responsive design for all devices
+- Toast notifications for user feedback
+
+## Prerequisites
+
+- Node.js 18+ 
+- MySQL database
+- pnpm package manager
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
+
+```bash
+git clone https://github.com/yourusername/kino-system-rezerwacji.git
+cd kino-system-rezerwacji
+```
+
+2. Install dependencies
+
+```bash
+pnpm install
+```
+
+3. Set up environment variables
+
+Copy the example environment file and adjust it to your needs:
+
+```bash
+cp .env.example .env
+```
+
+Edit the `.env` file with your MySQL database credentials.
+
+4. Set up the database
+
+```bash
+pnpm prisma:generate     # Generate Prisma client
+pnpm prisma:migrate      # Apply migrations
+pnpm seed                # Seed the database with sample data
+```
+
+Or run all database setup commands at once:
+
+```bash
+pnpm setup
+```
+
+5. Run the development server
 
 ```bash
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Using Docker
+
+The project includes a Dockerfile for containerized deployment:
+
+```bash
+# Build the Docker image
+docker build -t cinema-reservation-system .
+
+# Run the container
+docker run -p 3000:3000 -e DATABASE_URL=mysql://user:password@host:port/database cinema-reservation-system
+```
+
+### Manual Deployment
+
+1. Build the application
+
+```bash
+pnpm build
+```
+
+2. Start the production server
+
+```bash
+pnpm start
+```
+
+## Project Structure
+
+- `app/` - Next.js application routes and pages
+- `components/` - Reusable UI components
+- `hooks/` - Custom React hooks
+- `lib/` - Utility functions and database client
+- `prisma/` - Database schema and migrations
+- `public/` - Static assets
+- `scripts/` - Database seeding scripts
+
+## Admin Access
+
+Default admin credentials:
+- Email: admin@example.com
+- Password: admin123
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about the technologies used in this project:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [React Documentation](https://react.dev)
